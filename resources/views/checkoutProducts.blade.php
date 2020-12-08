@@ -1,8 +1,9 @@
 
-@include('layouts.header')
+@extends('layouts.index')
 
 
-@yield('center')
+
+@section('center')
 <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">
@@ -12,8 +13,15 @@
             </ol>
         </div>
        
+       
+
+
          @if(Auth::check())
-          
+       
+       
+
+       
+       
             <div class="shopper-informations">
                 <div class="row">
             
@@ -21,18 +29,23 @@
                         <div class="bill-to">
                             <p> Shipping/Bill To</p>
                             <div class="form-one">
-                                <form action="createNewOrder" method="post">
-                                    
-                                    {{csrf_field()}}                                                                 
-                        
-                                    
-                                    <input type="text" name="first_name" placeholder="First Name *" required>
-                                    <input type="text" name="last_name" placeholder="Last Name *"  required>
-                                    <input type="text" name="email" placeholder="Email*" required>
-                                    <input type="text" name="phone" placeholder="Mobile Phone *" required>  
-                                    <input type="text" name="address" placeholder="Address *" required>                             
-                                   <input type="text" name="zip" placeholder="Zip / Postal Code *" required>
+                                <form action="/createNewOrder" method="post">
 
+
+
+                                                                
+                                                                 {{csrf_field()}}
+                                                                 
+                        
+                                    <input type="text" name="email" placeholder="Email*" required>
+                                    <input type="text" name="first_name" placeholder="First Name *" required>
+                                    <input type="text" name="middle_name" placeholder="Middle Name" >
+                                    <input type="text" name="last_name" placeholder="Last Name *"  required>
+                                    <input type="text" name="address" placeholder="Address 1 *" required>
+                                    <input type="text" placeholder="Address 2">
+                                                                        
+                                                                        
+                                   <input type="text" name="zip" placeholder="Zip / Postal Code *" required>
                                     <select>
                                         <option>-- Country --</option>
                                         <option>United States</option>
@@ -56,7 +69,9 @@
                                         <option>Dubai</option>
                                     </select>
                                     
-                                    
+                                    <input type="text" name="phone" placeholder="Phone *" required>
+                                    <input type="text" placeholder="Mobile Phone">
+                                    <input type="text" placeholder="Fax">
                                 <button class="btn btn-default check_out" type="submit" name="submit" >Proceed To Payment</button>
                                                                        
                                 </form>
@@ -68,7 +83,24 @@
                     </div>
                            
                 </div>
-            </div>       
+            </div>
+            
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
     </div>
 </section> <!--/#cart_items-->
@@ -143,16 +175,34 @@
             </div>
         </div>
 
+
+
+
+
+
       @else
 
-            <div class="alert alert-danger" role="alert">
-                <strong>Please!</strong> <a href="{{route('login') }}">Log in</a> in order to create an order
-            </div>
+
+                                        <div class="alert alert-danger" role="alert">
+                                          <strong>Please!</strong> <a href="{{route('login') }}">Log in</a> in order to create an order
+                                        </div>
+
+
 
       @endif
+
+
+
+
+
+
 
     </div>
 </section><!--/#do_action-->
 
 
-@include('layouts.footer')
+@endsection
+
+
+
+

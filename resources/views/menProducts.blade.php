@@ -2,7 +2,6 @@
 @extends('layouts.index')
 
 
-
 @section('center')
 <div class="header-bottom"><!--header-bottom-->
     <div class="container">
@@ -41,20 +40,13 @@
             </div>
             <div class="col-sm-3">
                 <div class="search_box pull-right">
-                    <form action="search" method="get">
-                        <input type="text" name="searchText" placeholder="Search"/>
-                    </form>
+                    <input type="text" placeholder="Search"/>
                 </div>
             </div>
         </div>
     </div>
 </div><!--/header-bottom-->
 </header><!--/header-->
-
-
-<div class="container">
-    @include('alert')
-</div>
 
 <section id="slider"><!--slider-->
     <div class="container">
@@ -213,7 +205,7 @@
                 </div><!--features_items-->
 
 
-                {{$products->links()}}
+
 
 
 
